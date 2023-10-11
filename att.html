@@ -1,0 +1,241 @@
+<!DOCTYPE html>
+<html>
+<head>			
+<meta charset="utf-8">
+
+<script	src="https://code.jquery.com/jquery-3.4.1.min.js" integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo=" crossorigin="anonymous"></script>
+
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+
+<link rel="stylesheet" type="text/css" href="css/at.css">
+
+
+
+<script type="text/javascript">
+var vpre=0;
+var vlav="";
+var lav="";
+var fec="";
+var hora="";
+
+$(document).ready(function(){
+  	$("#boton1").click(function(){
+    	$("#perfilcliente").show();
+   		$("#principal").hide();
+  });
+});
+
+$(document).ready(function(){
+  	$("#s1").click(function(){
+    	$("#principal").show();
+   		$("#perfilcliente").hide();
+  });
+});
+
+
+$(document).ready(function(){
+  	$("#nt").click(function(){
+  		$("#mapa").show();
+    	$("#perfilcliente").hide();
+  });
+});
+
+$(document).ready(function(){
+  	$("#a1").click(function(){
+  		$("#perfilcliente").show();
+    	$("#mapa").hide();
+  });
+});
+
+
+$(document).ready(function(){
+  	$("#tur").click(function(){
+  		$("#turno").show();
+    	$("#mapa").hide();
+  });
+});
+
+
+$(document).ready(function(){
+  	$("#a2").click(function(){
+  		var boton = document.createElement("button");
+		boton.type = "button";
+		document.body.appendChild(boton);
+  		obtenervalores();
+  		$("#tp").html('Lavadero: '+ lav +'  feha: ' + fec + '  hora: ' + hora + '  servicio: ' +vlav + '  precio: ' + vpre + boton);
+  		$("#perfilcliente").show();
+    	$("#turno").hide();
+  });
+});
+$(document).ready(function(){
+  	$("#c2").click(function(){
+  		$("#mapa").show();
+    	$("#turno").hide();
+  });
+});
+
+
+$(document).ready(function(){
+  $("#mb1").click(function(){
+    vlav="Lavado de Lujo"
+    vpre=500;
+    $("#tl").html(vlav); 
+    $("#preci1").html('Precio: ' + vpre);
+  }); 
+});
+		
+$(document).ready(function(){
+  $("#mb2").click(function(){
+    vlav="Lavado Básico"
+    vpre=350;
+        $("#tl").html(vlav); 
+    $("#preci1").html('Precio: ' + vpre);
+  }); 
+});
+
+$(document).ready(function(){
+  $("#mb3").click(function(){
+    vlav="Solo Interiores"
+    vpre=200;
+        $("#tl").html(vlav); 
+    $("#preci1").html('Precio: ' + vpre);
+  }); 
+});
+
+
+function obtenervalores() {
+	 lav = $("#lav").val();
+   fec = $("#fec").val();
+   hora = $("hora").val()
+}
+
+</script>
+
+
+</head>
+<body>
+	<header>
+			<div class="contenedor">
+			<br>	
+				<h1 class="title"> ATT! </h1>
+				<br>			
+			</div>
+	</header>
+	<form id="principal">
+	<main style="">	
+		<section>
+			<br><br>
+			<img class="icon-att1" src="img/att.jpg">
+			<br>
+			<h2 id="descrip">Servicio de Lavaderos de Vehiculos</h2>
+		</section>
+		<br><br>
+		<button type="button" class="btn btn-primary btn-lg" id="boton1"><h3> Ingresar </h3></button>
+	</main>
+	</form>
+
+<form class="cont2" id="perfilcliente" style="display:none">
+	<section>
+		<img class="icon-att2" src="img/att.jpg">
+		<br>
+	</section>
+	<div>
+		<label>Usuario: <input type="text" class="form-control" id="usuario" placeholder="jperez27"></label>
+	</div>
+	<div>
+		<label>Nombre y Apellido: <input type="text" class="form-control" id="nombreyape" placeholder="Juan Perez"></label>
+	</div>
+	<div>
+		<label>Dirección: <input type="text" class="form-control" id="direccion" placeholder="Moreno 222"></label>
+	</div>
+	<div>
+		<label>Teléfono: <input type="text" class="form-control" id="telefono" placeholder="3489465655"></label>
+	</div>
+	<div>
+		<label>Tarjeta: <input type="text" class="form-control" id="tarjeta" placeholder="00300212440545"></label>
+	</div>
+	
+	<br>
+	<div id="bhist">
+		<button type="button" class="btn btn-primary btn-lg" id="hs">Historial Servicios</button>
+	</div>
+	<br><br>
+	<div>
+		<label class="label1">Turnos Pendientes</label>
+	</div>
+	<div>
+		<p id="tp">
+	</div>
+	<br>
+	<div id="bts">
+		<button type="button" class="btn btn-primary btn-lg" id="nt">Nuevo Turno</button>
+		<button type="button" class="btn btn-primary btn-lg" id="s1">Salir</button>
+	</div>
+</form>
+
+<form id="mapa" style="display:none">
+		<section class="cont2">
+			<br>
+		<img class="icon-att2" src="img/att.jpg">
+		<br>
+	</section>
+	<div class="cont3">
+		<label class="label1">Seleccione el lavadero en el mapa:</label>
+	</div>
+	<iframe src="https://www.google.com/maps/embed?pb=!1m16!1m12!1m3!1d13204.329574359848!2d-58.95971050274957!3d-34.16981104385057!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!2m1!1slavaderos%20de%20autos%2C%20campana!5e0!3m2!1ses!2sar!4v1575068390535!5m2!1ses!2sar" width="600" height="450" frameborder="0" style="border:0;" allowfullscreen=""></iframe>
+	<div class="cont3">
+		<button type="button" class="btn btn-primary btn-lg" id="tur">Turno</button>
+		<button type="button" class="btn btn-primary btn-lg" id="a1">Atrás</button>
+	</div>
+</form>
+
+<form id="turno" class="cont2" style="display:none">
+	
+	<section >
+			<br>
+		<img class="icon-att2" src="img/att.jpg">
+		<br>
+	</section>
+	<div>
+		<label class="label1">Turnos</label>
+		<br>
+	</div>
+	<div>
+		<label>Lavadero: <input type="text" class="form-control" id="lav" placeholder="Mr. Wash"></label>
+	</div>
+	
+	<div>
+		<label>Fecha: <input type="date" class="form-control" id="fec" placeholder="dd/mm/aaaa"></label>
+	</div>
+	<div>
+		<label>Hora: <input type="time" class="form-control" id="hora" placeholder="hh:mm a.m."></label>
+	</div>
+	<br>
+	<div>
+		<label class="label1">Seleccione un tipo de servicio:</label>
+	</div>
+	<div>
+  		<button type="button"  class="btn btn-outline-success" id="mb1">Lavado de Lujo</button>
+		<button type="button"  class="btn btn-outline-success" id="mb2">Lavado Básico</button>
+		<button type="button"   class="btn btn-outline-success" id="mb3">Solo Interiores</button>
+	</div>
+	<br>
+	<div>
+		<label><p id="tl"></p> </label>
+		<lavel><p id="preci1"></p></label>
+	</div>
+	<div><label>Pago en:</label>
+		<select name="pago">
+  			<option value="1">App</option> 
+  			<option value="2" selected>Local</option> 
+		</select>
+	</div>
+	<div id="bac">
+		<button type="button" class="btn btn-primary btn-lg" id="a2">Aceptar</button>
+		<button type="button" class="btn btn-primary btn-lg" id="c2">Cancelar</button>
+	</div>
+</form>
+
+</body>
+</html>
+
